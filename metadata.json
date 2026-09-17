@@ -1,0 +1,7 @@
+{
+  "name": "Hypnotism",
+  "description": "Private educational platform for Hypnotism & Mind Science learning in Malayalam and English.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
