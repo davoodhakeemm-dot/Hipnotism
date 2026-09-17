@@ -76,7 +76,7 @@ class HypnotismRepository private constructor() {
         subtitleEn = "Comprehensive educational program in Malayalam",
         subtitleMl = "മലയാളത്തിലുള്ള സമഗ്ര പഠന പരിപാടി",
         languageType = "Malayalam",
-        authorizedEmails = listOf("student1@gmail.com", "student2@gmail.com", OWNER_ADMIN_EMAIL),
+        authorizedEmails = listOf(OWNER_ADMIN_EMAIL),
         lessonsCount = 4
       ),
       Course(
@@ -86,7 +86,7 @@ class HypnotismRepository private constructor() {
         subtitleEn = "Complete scientific focus and hypnosis curriculum",
         subtitleMl = "ശാസ്ത്രീയ പഠനവും പരിശീലനവും",
         languageType = "English",
-        authorizedEmails = listOf("student3@gmail.com", "student4@gmail.com", OWNER_ADMIN_EMAIL),
+        authorizedEmails = listOf(OWNER_ADMIN_EMAIL),
         lessonsCount = 4
       ),
       Course(
@@ -208,73 +208,9 @@ The course should teach students to understand hypnotism responsibly rather than
       "hypno-bi" to biLessons
     )
 
-    // Seed sample student registrations
-    val sampleRegistrations = listOf(
-      StudentUser(
-        id = "stud-01",
-        fullName = "Arun Kumar",
-        age = 28,
-        phoneNumber = "+91 9847123456",
-        whatsAppNumber = "+91 9847123456",
-        profilePhotoUri = null,
-        gmailAddress = "student1@gmail.com",
-        verifiedGoogleEmail = "student1@gmail.com",
-        address = "Kochi, Ernakulam, Kerala",
-        selectedCourseId = "hypno-ml",
-        registrationDate = "2026-09-10",
-        status = RegistrationStatus.APPROVED,
-        lastLogin = "Today at 10:15 AM"
-      ),
-      StudentUser(
-        id = "stud-02",
-        fullName = "Fathima Noor",
-        age = 24,
-        phoneNumber = "+91 9876543210",
-        whatsAppNumber = "+91 9876543210",
-        profilePhotoUri = null,
-        gmailAddress = "student2@gmail.com",
-        verifiedGoogleEmail = "student2@gmail.com",
-        address = "Calicut, Kerala",
-        selectedCourseId = "hypno-ml",
-        registrationDate = "2026-09-12",
-        status = RegistrationStatus.APPROVED,
-        lastLogin = "Yesterday at 04:30 PM"
-      ),
-      StudentUser(
-        id = "stud-03",
-        fullName = "Rahul Menon",
-        age = 31,
-        phoneNumber = "+91 9446012345",
-        whatsAppNumber = "+91 9446012345",
-        profilePhotoUri = null,
-        gmailAddress = "student3@gmail.com",
-        verifiedGoogleEmail = "student3@gmail.com",
-        address = "Trivandrum, Kerala",
-        selectedCourseId = "hypno-en",
-        registrationDate = "2026-09-14",
-        status = RegistrationStatus.APPROVED,
-        lastLogin = "2 days ago"
-      ),
-      StudentUser(
-        id = "stud-04",
-        fullName = "Ananya Varma",
-        age = 22,
-        phoneNumber = "+91 9123456789",
-        whatsAppNumber = "+91 9123456789",
-        profilePhotoUri = null,
-        gmailAddress = "pending.student@gmail.com",
-        verifiedGoogleEmail = "pending.student@gmail.com",
-        address = "Thrissur, Kerala",
-        selectedCourseId = "hypno-ml",
-        registrationDate = "2026-09-16",
-        status = RegistrationStatus.PENDING,
-        lastLogin = "Never"
-      )
-    )
-    _registrations.value = sampleRegistrations
-
-    // Initial student session for demo/testing convenience
-    _currentUser.value = sampleRegistrations[0]
+    // No fake bot students - only real student registrations
+    _registrations.value = emptyList()
+    _currentUser.value = null
   }
 
   // --- STUDENT REGISTRATION & GOOGLE AUTH VERIFICATION ---

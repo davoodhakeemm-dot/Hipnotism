@@ -101,7 +101,14 @@ fun HypnotismApp() {
           onTripleTapLogo = {
             // Hidden Admin Entry triggered by 3 taps on logo
             showAdminAccessDialog = true
-          }
+          },
+          onNavigateHome = { currentScreen = ScreenState.HOME },
+          onNavigateCourses = { currentScreen = ScreenState.HOME },
+          onNavigateWhatStudentsLearn = { currentScreen = ScreenState.WHAT_STUDENTS_LEARN },
+          onNavigateEthicsSafety = { currentScreen = ScreenState.ETHICS_SAFETY },
+          onNavigateAbout = { currentScreen = ScreenState.COURSE_INTRO },
+          onNavigateMyClasses = { currentScreen = ScreenState.STUDENT_DASHBOARD },
+          onNavigateJoinClass = { currentScreen = ScreenState.REGISTRATION }
         )
       }
     },

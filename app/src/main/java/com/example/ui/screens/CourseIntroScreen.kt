@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.model.AppLanguage
+import com.example.ui.components.AppFooter
 import com.example.ui.theme.*
 import com.example.util.AppStrings
 
@@ -32,19 +33,33 @@ fun CourseIntroScreen(
 ) {
   var activeTabLanguage by remember(currentLanguage) { mutableStateOf(currentLanguage) }
 
-  Column(
+  BoxWithConstraints(
     modifier = Modifier
       .fillMaxSize()
       .background(DeepObsidian)
-      .verticalScroll(rememberScrollState())
-      .padding(20.dp)
       .testTag("course_intro_screen")
   ) {
-    // Header Banner
-    Row(
-      verticalAlignment = Alignment.CenterVertically,
-      modifier = Modifier.fillMaxWidth()
+    val isDesktop = maxWidth >= 960.dp
+    val hPadding = if (isDesktop) 40.dp else 16.dp
+
+    Column(
+      horizontalAlignment = Alignment.CenterHorizontally,
+      modifier = Modifier
+        .fillMaxSize()
+        .verticalScroll(rememberScrollState())
+        .padding(top = 20.dp, bottom = 24.dp)
     ) {
+      Column(
+        modifier = Modifier
+          .fillMaxWidth()
+          .widthIn(max = 1100.dp)
+          .padding(horizontal = hPadding)
+      ) {
+        // Header Banner
+        Row(
+          verticalAlignment = Alignment.CenterVertically,
+          modifier = Modifier.fillMaxWidth()
+        ) {
       Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -245,6 +260,18 @@ fun CourseIntroScreen(
       accent = WisdomAmber
     )
   }
+
+  Spacer(modifier = Modifier.height(32.dp))
+
+  AppFooter(
+    currentLanguage = currentLanguage,
+    onNavigateIntro = {},
+    onNavigateCurriculum = {},
+    onNavigateEthics = {},
+    onNavigateClasses = {}
+  )
+}
+}
 }
 
 @Composable

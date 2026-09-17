@@ -77,7 +77,7 @@ fun AdminAccessDialog(
         Spacer(modifier = Modifier.height(18.dp))
 
         if (!isKeyVerified) {
-          // STEP 1: Enter Access Key (Prototype key: 91870)
+          // STEP 1: Enter Private Access Key
           Text(
             text = "Enter Access Key",
             color = FocusCyanLight,
@@ -93,7 +93,7 @@ fun AdminAccessDialog(
               accessKey = it
               errorMessage = null
             },
-            placeholder = { Text("Access Key (e.g. 91870)", color = TextMuted) },
+            placeholder = { Text("Enter Private Access Key", color = TextMuted) },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),

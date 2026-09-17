@@ -96,6 +96,9 @@ class ExampleRobolectricTest {
       lastLogin = "Today"
     )
 
+    // Authorize student1@gmail.com specifically for hypno-ml
+    repository.addAuthorizedEmailToCourse("hypno-ml", "student1@gmail.com")
+
     // Authorized access to hypno-ml (student1@gmail.com is in hypno-ml authorized list)
     val (hasAccess, _) = repository.checkCourseAccess("hypno-ml", approvedStudentWithAccess)
     assertTrue("Approved student in authorized list should have access", hasAccess)
